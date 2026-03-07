@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://edefense.github.io/sitemap.xml
+
+# Crawl delay (optional, in seconds)
+Crawl-delay: 1
+
+# Disallow specific directories (if any)
+# Disallow: /private/
+# Disallow: /temp/
