@@ -1,8 +1,8 @@
 # DNS Setup Guide for edefense.nz
 
-**Domain**: edefense.nz  
-**Hosting**: GitHub Pages  
-**Repository**: eDefense/edefense.github.io  
+**Domain**: edefense.nz
+**Hosting**: GitHub Pages
+**Repository**: eDefense/edefense.github.io
 **Last Updated**: March 7, 2026
 
 ## 📋 Overview
@@ -209,7 +209,7 @@ Now configure DNS records at your domain registrar (e.g., GoDaddy, Namecheap, Cl
    - **TTL**: Auto
 7. Click **Save**
 
-**Cloudflare Important Note**: 
+**Cloudflare Important Note**:
 - ⚠️ **Disable Cloudflare proxy** (gray cloud icon) for GitHub Pages
 - Orange cloud icon = proxied (will break GitHub Pages HTTPS)
 - Gray cloud icon = DNS only (correct setting)
@@ -569,7 +569,7 @@ dig edefense.nz ANY
 
 ---
 
-**Document Version**: 1.0.0  
-**Last Updated**: March 7, 2026  
-**Maintained By**: eDefense Systems Development Team  
+**Document Version**: 1.0.0
+**Last Updated**: March 7, 2026
+**Maintained By**: eDefense Systems Development Team
 **Related Documents**: [EMAIL_SETUP.md](EMAIL_SETUP.md), [SETUP.md](SETUP.md), [README.md](README.md)

@@ -21,7 +21,9 @@
     <meta name="twitter:image" content="https://edefense.github.io/images/twitter-card.jpg">
 
     <!-- Content Security Policy -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; img-src 'self' https: data:; font-src 'self' https://cdn.jsdelivr.net; connect-src 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com 'unsafe-inline'; img-src 'self' https: data:; font-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; connect-src 'self'; frame-ancestors 'none';">
+    <!-- Referrer Policy -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <title>eDefense Systems - Enterprise Cybersecurity Solutions</title>
 

@@ -75,8 +75,8 @@
     return new Promise(function(resolve, reject) {
       // Simulate API call with timeout
       setTimeout(function() {
-        // Log form data (in production, this would be sent to backend)
-        console.log('Form submitted:', formData);
+        // Log form submission without PII
+        console.log('Form submission initiated');
 
         // Simulate success (90% success rate for demo)
         if (Math.random() > 0.1) {
@@ -98,8 +98,17 @@
 
     feedback.className = 'mt-3 alert alert-' + type + ' alert-dismissible fade show';
     feedback.setAttribute('role', 'alert');
-    feedback.innerHTML = message +
-      '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+
+    // Use safe DOM construction — never assign untrusted content via innerHTML
+    feedback.textContent = '';
+    const msgNode = document.createTextNode(message);
+    feedback.appendChild(msgNode);
+    const closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.className = 'btn-close';
+    closeBtn.setAttribute('data-bs-dismiss', 'alert');
+    closeBtn.setAttribute('aria-label', 'Close');
+    feedback.appendChild(closeBtn);
     feedback.style.display = 'block';
 
     // Auto-hide success messages after 5 seconds
@@ -229,15 +238,7 @@
     return div.innerHTML;
   }
 
-  // Add animation class
-  const style = document.createElement('style');
-  style.textContent = `
-    .animate-fade-in {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
-    }
-  `;
-  document.head.appendChild(style);
+  // Animation class is defined in css/main.css (.animate-fade-in) — no dynamic style injection needed
 
   // Expose utility functions for testing (optional)
   if (typeof window !== 'undefined') {

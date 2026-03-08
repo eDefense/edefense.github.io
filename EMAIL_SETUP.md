@@ -1,6 +1,6 @@
 # Contact Form Email Configuration Guide
 
-**Status**: Contact form currently disabled (awaiting email configuration)  
+**Status**: Contact form currently disabled (awaiting email configuration)
 **Last Updated**: March 7, 2026
 
 ## 📋 Overview
@@ -60,7 +60,7 @@ Select one of the following email integration options:
    - Copy the form endpoint: `https://formspree.io/f/YOUR_FORM_ID`
 
 3. **Update `js/main.js`**:
-   
+
    Find the `submitForm()` function (around line 70-88) and replace with:
 
    ```javascript
@@ -70,7 +70,7 @@ Select one of the following email integration options:
     */
    async function submitForm(formData) {
        const formFeedback = document.getElementById('formFeedback');
-       
+
        try {
            const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
                method: 'POST',
@@ -84,7 +84,7 @@ Select one of the following email integration options:
                formFeedback.style.display = 'block';
                formFeedback.className = 'alert alert-success mt-3';
                formFeedback.textContent = 'Thank you for your message! We\'ll get back to you within 24 hours.';
-               
+
                // Reset form
                document.getElementById('contactForm').reset();
                document.getElementById('contactForm').classList.remove('was-validated');
@@ -130,7 +130,7 @@ Select one of the following email integration options:
    - Create email template with form fields
 
 3. **Update `index.html`**:
-   
+
    Add EmailJS SDK before closing `</body>` tag:
 
    ```html
@@ -144,13 +144,13 @@ Select one of the following email integration options:
    ```
 
 4. **Update `js/main.js`**:
-   
+
    Replace `submitForm()` function:
 
    ```javascript
    async function submitForm(formData) {
        const formFeedback = document.getElementById('formFeedback');
-       
+
        const templateParams = {
            from_name: formData.get('name'),
            from_email: formData.get('email'),
@@ -161,11 +161,11 @@ Select one of the following email integration options:
 
        try {
            await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams);
-           
+
            formFeedback.style.display = 'block';
            formFeedback.className = 'alert alert-success mt-3';
            formFeedback.textContent = 'Thank you for your message! We\'ll get back to you within 24 hours.';
-           
+
            document.getElementById('contactForm').reset();
            document.getElementById('contactForm').classList.remove('was-validated');
        } catch (error) {
@@ -193,7 +193,7 @@ Select one of the following email integration options:
 **Setup Instructions**:
 
 1. **Create Email Endpoint in WebSite Project**:
-   
+
    Add to `WebSite` Spring Boot project (Spring Boot 4.0.3):
 
    ```java
@@ -218,7 +218,7 @@ Select one of the following email integration options:
                    "Product: " + form.getProduct() + "\n" +
                    "Message: " + form.getMessage()
                );
-               
+
                mailSender.send(message);
                return ResponseEntity.ok(Map.of("success", true));
            } catch (Exception e) {
@@ -230,7 +230,7 @@ Select one of the following email integration options:
    ```
 
 2. **Configure Spring Mail Properties**:
-   
+
    Add to `application.yml`:
 
    ```yaml
@@ -249,13 +249,13 @@ Select one of the following email integration options:
    ```
 
 3. **Update `js/main.js`**:
-   
+
    Replace `submitForm()` function:
 
    ```javascript
    async function submitForm(formData) {
        const formFeedback = document.getElementById('formFeedback');
-       
+
        const data = {
            name: formData.get('name'),
            email: formData.get('email'),
@@ -279,7 +279,7 @@ Select one of the following email integration options:
                formFeedback.style.display = 'block';
                formFeedback.className = 'alert alert-success mt-3';
                formFeedback.textContent = 'Thank you for your message! We\'ll get back to you within 24 hours.';
-               
+
                document.getElementById('contactForm').reset();
                document.getElementById('contactForm').classList.remove('was-validated');
            } else {
@@ -330,7 +330,7 @@ Once you've chosen and configured an email integration method:
 ### Step 3: Restore Navigation Links
 
 1. **Restore Top Navigation Contact Link** (around line 62-66):
-   
+
    **Before**:
    ```html
    <!-- Contact link disabled: Awaiting email configuration
@@ -348,7 +348,7 @@ Once you've chosen and configured an email integration method:
    ```
 
 2. **Restore Hero CTA Button** (around line 79-82):
-   
+
    **Before**:
    ```html
    <div class="d-flex gap-3">
@@ -368,7 +368,7 @@ Once you've chosen and configured an email integration method:
 ### Step 4: Restore Footer Contact Information
 
 1. **Update Footer Links Section** (around line 382-397):
-   
+
    **Before**:
    ```html
    <div class="col-md-4">
@@ -488,7 +488,7 @@ Before going live with contact form:
    ```
 
 2. **Configure DNS Records** (in your domain registrar):
-   
+
    **For apex domain (edefense.nz)**:
    ```
    A    @    185.199.108.153
@@ -583,6 +583,6 @@ If you need help with email integration:
 
 ---
 
-**Document Version**: 1.0.0  
-**Last Updated**: March 7, 2026  
+**Document Version**: 1.0.0
+**Last Updated**: March 7, 2026
 **Maintained By**: eDefense Systems Development Team

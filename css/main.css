@@ -412,6 +412,12 @@ select:focus {
   }
 }
 
+/* Scroll animation completion class — applied by IntersectionObserver in main.js */
+.animate-fade-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
 /* ==========================================================================
    Dark Mode Support (if preferred by user)
    ========================================================================== */

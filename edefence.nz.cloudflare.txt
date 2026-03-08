@@ -1,0 +1,12 @@
+;; Clean DNS Records for Cloudflare Import
+;; Domain: edefense.nz
+;; Only includes A and CNAME records (no NS or SOA)
+
+;; A Records (apex domain → GitHub Pages)
+edefense.nz.	3600	IN	A	185.199.108.153
+edefense.nz.	3600	IN	A	185.199.109.153
+edefense.nz.	3600	IN	A	185.199.110.153
+edefense.nz.	3600	IN	A	185.199.111.153
+
+;; CNAME Record (www subdomain → GitHub Pages)
+www.edefense.nz.	3600	IN	CNAME	edefense.github.io.
