@@ -277,11 +277,11 @@ of this software and associated documentation files...
 ## 🔗 Related Projects
 
 ### eDefense Product Suite
-- **[IDS](https://github.com/rhm002/IDS)** - Intrusion Detection System with CVE management
-- **[IPS](https://github.com/rhm002/IPS)** - Intrusion Prevention System with real-time threat response
-- **[AntiVirus](https://github.com/rhm002/AntiVirus)** - Real-time malware detection and quarantine
-- **[ICE-Core](https://github.com/rhm002/ICE-Core)** - Network packet capture and analysis engine
-- **[WebSite](https://github.com/rhm002/eDefense-Website)** - Spring Boot marketing website (in development)
+- **[IDS](https://github.com/edefense/IDS)** - Intrusion Detection System with CVE management
+- **[IPS](https://github.com/edefense/IPS)** - Intrusion Prevention System with real-time threat response
+- **[AntiVirus](https://github.com/edefense/AntiVirus)** - Real-time malware detection and quarantine
+- **[ICE-Core](https://github.com/edefense/ICE-Core)** - Network packet capture and analysis engine
+- **[WebSite](https://github.com/edefense/WebSite)** - Spring Boot marketing website (in development)
 
 ## 📝 Changelog
 
