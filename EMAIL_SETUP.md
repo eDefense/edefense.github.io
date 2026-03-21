@@ -194,7 +194,7 @@ Select one of the following email integration options:
 
 1. **Create Email Endpoint in WebSite Project**:
 
-   Add to `WebSite` Spring Boot project (Spring Boot 4.0.3):
+   Add to `WebSite` Spring Boot project (Spring Boot 4.0.4):
 
    ```java
    @RestController
