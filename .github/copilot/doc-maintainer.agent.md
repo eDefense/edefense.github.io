@@ -243,7 +243,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [ main,feature/*,features/*,hotfix/*]
   workflow_dispatch:
 
 permissions:
