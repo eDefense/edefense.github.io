@@ -248,3 +248,48 @@ Permissions-Policy: geolocation=(), microphone=(), camera=()
 ---
 
 **Remember**: Security is not a feature, it's a **requirement**. Every line of code is a potential attack vector.
+## Global Agent Policy (Mandatory)
+
+This section is mandatory for all agents and instruction files in this repository group. If any existing instruction conflicts with this section, this section takes precedence.
+
+1. Always prefer the latest stable framework/component versions. Never introduce deprecated components or APIs.
+2. For Java projects, use the latest Java LTS release only.
+3. All automated unit and integration tests must use in-memory databases.
+4. Use PostgreSQL for non-test environments and persistent database workloads.
+5. Never develop directly on main. Use feature/* for features and hotfix/* for hotfixes.
+6. All changes must be merged to main via pull requests only.
+7. Before commit, all relevant tests must pass.
+8. Every commit must be pushed to GitHub.
+9. Use GitHub CLI with account rhm002 for PR operations.
+10. When changes are ready, automatically create a pull request targeting main.
+11. After PR merge is confirmed manually, delete the local branch and sync local main with origin/main.
+12. Use correct instruction/agent file format: valid YAML frontmatter when required, clear headings, and explicit actionable rules.
+13. When creating files or directories on Windows development environments, use WSL commands and paths.
+
+### Required Git/GitHub CLI Flow
+
+```bash
+# Start from main and create branch
+git checkout main
+git pull origin main
+git checkout -b feature/<short-name>   # or hotfix/<short-name>
+
+# Run tests (must pass before commit)
+# <project-specific test command>
+
+# Commit and push
+git add -A
+git commit -m "<type>(<scope>): <summary>"
+git push -u origin <branch>
+
+# Ensure GitHub CLI uses required account
+gh auth switch -u rhm002 || gh auth login
+
+# Create PR
+gh pr create --base main --head <branch> --title "<title>" --body "<summary>"
+
+# After PR is merged (manual verification)
+git checkout main
+git pull origin main
+git branch -d <branch>
+```
