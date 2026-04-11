@@ -22,6 +22,6 @@ jobs:
             - name: Cleanup Old Failed Runs
               shell: bash
               run: |
-                  gh run list --limit=2000 --json databaseId,conclusion --jq '.[] | select(.conclusion=="failure" or .conclusion=="cancelled") | .databaseId' | xargs -n1 gh run delete || true
+                  gh run list --limit=2000 --json databaseId,conclusion --jq '.[] | select(.conclusion=="failure" or .conclusion=="cancelled" or .conclusion=="timed_out" or .conclusion=="startup_failure") | .databaseId' | xargs -n1 gh run delete || true
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
