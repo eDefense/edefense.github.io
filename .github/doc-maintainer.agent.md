@@ -1,11 +1,3 @@
----
-applyTo:
-  - "**/*.md"
-  - "**/*.html"
-  - "**/*.js"
-  - "**/*.ts"
----
-
 # Documentation Maintainer Agent
 
 ## Role

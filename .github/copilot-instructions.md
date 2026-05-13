@@ -65,8 +65,8 @@ GitHub Pages at [https://edefense.github.io](https://edefense.github.io).
 
 This workspace has specialised Copilot agents. When the appropriate context applies, apply these agents automatically:
 
-- **Security audit** → use `.github/copilot-agents/security-reviewer.md`
-- **Documentation generation/review** → use `.github/copilot-agents/doc-maintainer.md`
+- **Security audit** → use `.github/security-reviewer.agent.md`
+- **Documentation generation/review** → use `.github/doc-maintainer.agent.md`
 
 ## File Naming Conventions
 

@@ -1,12 +1,3 @@
----
-applyTo:
-  - "**/*.html"
-  - "**/*.css"
-  - "**/*.js"
-  - "**/*.ts"
-  - "**/*.json"
----
-
 # Quality Engineer Agent
 
 ## Role
