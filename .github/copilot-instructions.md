@@ -77,29 +77,3 @@ This workspace has specialised Copilot agents. When the appropriate context appl
 | Scripts | `js/` | `*.js` |
 | Images | `images/` | lowercase, descriptive names |
 | Docs | `/` | `SCREAMING_SNAKE_CASE.md` |
-
-## Global Agent Policy (Mandatory)
-
-This section is mandatory for all agents and instruction files in this repository group. If any existing instruction conflicts with this section, this section takes precedence.
-
-1. Never develop directly on main. Use feature/* for features and hotfix/* for hotfixes.
-2. All changes must be merged to main via pull requests only.
-3. Every commit must be pushed to GitHub.
-4. Use GitHub CLI with account rhm002 for PR operations.
-5. When changes are ready, automatically create a pull request targeting main.
-6. After PR merge is confirmed manually, delete the local branch and sync local main with origin/main.
-7. When creating files or directories on Windows development environments, use WSL commands and paths.
-
-### Required Git/GitHub CLI Flow
-
-```bash
-git checkout main && git pull origin main
-git checkout -b feature/<short-name>
-# no build step required
-git add -A && git commit -m "<type>(<scope>): <summary>"
-git push -u origin feature/<short-name>
-gh auth switch -u rhm002 || gh auth login
-gh pr create --base main --head feature/<short-name> --title "<title>" --body "<summary>"
-# after PR merged manually:
-git checkout main && git pull origin main && git branch -d feature/<short-name>
-```
