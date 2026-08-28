@@ -101,7 +101,7 @@ body {
    Hero Section
    ========================================================================== */
 .hero-section {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #4c5fd6 0%, #5d3a87 100%);
   color: white;
   padding: 4rem 0;
   position: relative;
@@ -248,6 +248,16 @@ footer {
   border-top: 3px solid var(--primary-color);
 }
 
+/* Bootstrap's default .text-muted (#6c757d) falls short of WCAG AA (4.5:1)
+   on both bg-light and bg-dark; these overrides bring it into range. */
+.text-muted {
+  color: #5c636a !important;
+}
+
+footer .text-muted {
+  color: #adb5bd !important;
+}
+
 footer a {
   transition: color var(--transition-fast);
 }
@@ -370,15 +380,15 @@ select:focus {
   }
 }
 
-/* Tablet - 481px to 768px */
-@media (min-width: 481px) and (max-width: 768px) {
+/* Tablet / below Bootstrap's lg breakpoint - 481px to 991px */
+@media (min-width: 481px) and (max-width: 991px) {
   .hero-icon {
     font-size: 10rem;
   }
 }
 
-/* Laptop - 769px to 1024px */
-@media (min-width: 769px) and (max-width: 1024px) {
+/* Laptop - matches Bootstrap's lg breakpoint (992px) to 1024px */
+@media (min-width: 992px) and (max-width: 1024px) {
   .hero-icon {
     font-size: 12rem;
   }
@@ -392,6 +402,18 @@ select:focus {
 
   .container {
     max-width: 1140px;
+  }
+}
+
+/* Short viewports (e.g. landscape mobile) - prevent hero from forcing
+   content below the fold via min-vh-100 */
+@media (max-height: 500px) {
+  .hero-section .min-vh-100 {
+    min-height: auto !important;
+  }
+
+  .hero-section {
+    padding: 2rem 0;
   }
 }
 
